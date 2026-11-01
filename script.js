@@ -209,34 +209,26 @@ function getPenalty(score) {
 
 // 9. Save applicant to the Naughty & Nice Register
 
-function saveApplicant(name, score, verdict) {
+async function saveApplicant(name, score, verdict) {
 
-    // Retrieve the existing register from the browser
-    // JSON.parse converts the saved string back into an array
-    // If no register exists yet, start with an empty array
-    let applicants = JSON.parse(
-        localStorage.getItem("christmasApplicants")
-    ) || [];
+    // Create a new applicant record in Supabase
+    const { data, error } = await supabaseClient
+        .from("applicants")
+        .insert([
+            {
+                name: name,
+                score: score,
+                verdict: verdict
+            }
+        ]);
 
+    // Check whether the database saved the record successfully
+    if (error) {
+        console.error("Could not save applicant:", error);
+    } else {
+        console.log("Applicant successfully saved to Supabase!");
+    }
 
-    // Create a new object containing this applicant's details
-    const newApplicant = {
-        name: name,
-        score: score,
-        verdict: verdict
-    };
-
-
-    // Add the new applicant to the existing array
-    applicants.push(newApplicant);
-
-
-    // Convert the updated array into a string
-    // Save the string in the browser's localStorage
-    localStorage.setItem(
-        "christmasApplicants",
-        JSON.stringify(applicants)
-    );
 }
 
 // 10. Typewriter effect for the official verdict
@@ -306,9 +298,9 @@ function showResult() {
     const penalty = getPenalty(finalScore);
 
 
-    // Save the applicant's details to localStorage
-    // This happens for ALL applicants, including model citizens
-    saveApplicant(applicantName, finalScore, verdict);
+// Save the applicant's details to the shared Supabase database
+// This happens for ALL applicants, including model citizens
+saveApplicant(applicantName, finalScore, verdict);
 
 
     // Display the verdict using the typewriter effect
