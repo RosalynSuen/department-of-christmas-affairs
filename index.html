@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department of Christmas Affairs</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<header>
+    <div class="header-layout">
+
+        <img src="santa.png"
+             alt="Vintage illustration of Santa Claus"
+             class="santa-image">
+
+        <div class="header-title">
+            <p>OFFICIAL GOVERNMENT DEPARTMENT · EST. 1843</p>
+            <h1>Department of Christmas Affairs</h1>
+            <p>Form CA-25: Annual Christmas Conduct Assessment</p>
+        </div>
+
+        <div class="official-stamp">
+            OFFICIAL
+            <span>CHRISTMAS DEPARTMENT</span>
+        </div>
+
+    </div>
+</header>
+
+<div id="secret-message" hidden>
+    <strong>CLASSIFIED DEPARTMENT MEMO</strong>
+    <p id="secret-text"></p>
+</div>
+
+    <main>
+        <div id="intro">
+        <h2>Your Christmas conduct is under review.</h2>
+        <p>
+            Five questions. One official verdict.
+            Santa is watching. Probably.
+        </p>
+        </div>
+
+        <form id="christmas-form">
+
+    <label for="applicant">Applicant's name:</label>
+    <input type="text" id="applicant" placeholder="Enter your name">
+
+    <button type="button" id="investigateBtn">
+        Begin investigation
+    </button>
+
+    <div id="assessment" hidden>
+
+        <p id="progress">QUESTION 1 OF 5</p>
+
+        <div class="progress-bar">
+            <div id="progress-fill"></div>
+        </div>
+
+        <fieldset class="question-step question-pull">
+            <legend>1. You push a door that clearly says PULL. What do you do?</legend>
+            <label>
+                <input type="radio" name="q1" value="0" required>
+                Quietly pull it and pretend nothing happened.
+            </label>
+            <label>
+                <input type="radio" name="q1" value="1">
+                Look around to check whether anyone saw.
+            </label>
+            <label>
+                <input type="radio" name="q1" value="2">
+                Report the door for misleading instructions.
+            </label>
+        </fieldset>
+
+        <fieldset class="question-step question-half food">
+            <legend>2. You say you're not hungry, then eat half someone else's food. Your defence?</legend>
+            <label>
+                <input type="radio" name="q2" value="0" required>
+                I would never do such a thing.
+            </label>
+            <label>
+                <input type="radio" name="q2" value="1">
+                I was merely sampling the food.
+            </label>
+            <label>
+                <input type="radio" name="q2" value="2">
+                If it was within reach, it was practically an invitation.
+            </label>
+        </fieldset>
+
+        <fieldset class="question-step question-goodbye">
+            <legend>3. You say goodbye, then realise you're walking in the same direction. What now?</legend>
+            <label>
+                <input type="radio" name="q3" value="0" required>
+                Carry on walking like a normal person.
+            </label>
+            <label>
+                <input type="radio" name="q3" value="1">
+                Pretend to check my phone.
+            </label>
+            <label>
+                <input type="radio" name="q3" value="2">
+                Take a completely unnecessary detour to preserve the farewell.
+            </label>
+        </fieldset>
+
+        <fieldset class="question-step question-deliver">
+            <legend>4. Santa asks you to deliver presents. You spot your own present on the sleigh. What do you do?</legend>
+            <label>
+                <input type="radio" name="q4" value="0" required>
+                Finish the delivery route first.
+            </label>
+            <label>
+                <input type="radio" name="q4" value="1">
+                Check whether mine is the biggest.
+            </label>
+            <label>
+                <input type="radio" name="q4" value="2">
+                Confiscate it as evidence in a potential conflict of interest.
+            </label>
+        </fieldset>
+
+        <fieldset class="question-step question-sock">
+            <legend>5. Santa gives you socks for Christmas. What is your response?</legend>
+            <label>
+                <input type="radio" name="q5" value="0" required>
+                Thank him. Socks are useful.
+            </label>
+            <label>
+                <input type="radio" name="q5" value="1">
+                Wonder whether he has confused me with my grandparent.
+            </label>
+            <label>
+                <input type="radio" name="q5" value="2">
+                Investigate whether Santa receives commission from a sock company.
+            </label>
+        </fieldset>
+
+        <div class="navigation">
+            <button type="button" id="backBtn" hidden>
+                BACK
+            </button>
+            <button type="button" id="nextBtn">
+                NEXT QUESTION →
+            </button>
+        </div>
+
+    </div>
+
+</form>
+     
+
+        <section id="result" hidden>
+
+        <div id="verdict-stamp" class="verdict-stamp">
+    <span class="stamp-top">CHRISTMAS DEPARTMENT</span>
+    <strong class="stamp-main">APPROVED</strong>
+    <span class="stamp-bottom">BY ORDER OF SANTA</span>
+</div>
+
+            <h2>OFFICIAL VERDICT</h2>
+            <p id="verdict"></p>
+            <p id="penalty"></p>
+
+      <div class="result-buttons">
+    <button id="accept-button">Accept punishment</button>
+    <button id="appeal-button">Appeal decision</button>
+</div>
+
+<p id="appeal-message"></p>
+
+<a href="register.html" class="scoreboard-link" hidden>
+    View the Official Naughty & Nice Register
+</a>
+        </section>
+
+        <section id="punishment" hidden>
+
+    <h2>OFFICIAL SENTENCE NOTICE</h2>
+
+    <p>DEPARTMENT OF CHRISTMAS AFFAIRS · FORM PN-25</p>
+
+    <h2 id="punishment-title">SENTENCE ACCEPTED</h2>
+
+    <p id="punishment-description">
+        Your assigned department is awaiting allocation.
+    </p>
+
+    <button type="button" id="report-button">
+        REPORT FOR DUTY
+    </button>
+
+    <div id="assignment" hidden>
+        <h2 id="assignment-title"></h2>
+        <p id="assignment-description"></p>
+    </div>
+
+<a href="register.html" class="scoreboard-link" hidden>
+    View the Official Naughty & Nice Register
+</a>
+
+</section>
+
+        <section id="certificate" hidden>
+
+    <h2>OFFICIAL CERTIFICATE</h2>
+
+    <p>This certifies that</p>
+
+    <h3 id="certificate-name"></h3>
+
+    <p>has demonstrated exemplary Christmas conduct.</p>
+
+    <p>By order of the Department of Christmas Affairs.</p>
+
+    <div class="signature">
+    <p>Signed by order of the Department</p>
+    <span>Santa Claus</span>
+    <p>Father Christmas</p>
+</div>
+
+<a href="register.html" class="scoreboard-link">
+    View the Official Naughty & Nice Register
+</a>
+
+</section>
+
+    </main>
+
+    <footer>
+        <p>The Department reserves the right to question suspicious answers. All decisions are final. Santa is watching.</p>
+    </footer>
+
+       <script src="script.js"></script>
+</body>
+</html>
